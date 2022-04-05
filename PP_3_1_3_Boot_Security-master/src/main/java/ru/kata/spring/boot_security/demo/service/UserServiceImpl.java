@@ -13,7 +13,6 @@ import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service

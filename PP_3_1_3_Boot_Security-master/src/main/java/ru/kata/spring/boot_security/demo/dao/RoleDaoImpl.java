@@ -5,11 +5,13 @@ import org.springframework.stereotype.Repository;
 import ru.kata.spring.boot_security.demo.model.Role;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 @Repository
 public class RoleDaoImpl {
 
+    @PersistenceContext
     private final EntityManager entityManager;
 
     @Autowired

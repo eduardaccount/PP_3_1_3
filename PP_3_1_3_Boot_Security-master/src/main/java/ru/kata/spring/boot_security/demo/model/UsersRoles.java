@@ -1,7 +1,6 @@
 package ru.kata.spring.boot_security.demo.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "users_roles")

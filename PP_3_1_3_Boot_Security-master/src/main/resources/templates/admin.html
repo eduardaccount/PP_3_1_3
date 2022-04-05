@@ -28,13 +28,13 @@
 </head>
 <body>
 
-<!-- Верхний бар -->
+<!-- Верхнее меню -->
 <nav class="navbar navbar-dark bg-dark">
     <span class="navbar-brand mb-0 h1">
 
-        <!-- Для отображения имейла и роли залогинившегося -->
+        <!-- Для отображения имени и роли залогинившегося -->
          <strong><a th:text="${currentUser.getUsername()}"></a></strong>
-        <span class="text-start">with roles:
+        <span class="text-start">ROLES:
             <a th:each="role : ${currentUser.getAuthorities()}" th:text="${role} + ' '"></a>
         </span>
     </span>
@@ -45,7 +45,7 @@
     </ul>
 </nav>
 
-<!-- Левый бар -->
+<!-- Меню слева -->
 <div class="row mt-5">
     <div class="col-2 fixed-left">
         <div th:fragment="leftMenu">
@@ -66,8 +66,6 @@
     <div class="col-10 bg-light">
 
         <h1>Admin panel</h1>
-
-        <!-- Переключалка над таблицей между User table и New user -->
         <nav>
             <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
@@ -77,7 +75,7 @@
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <!-- All users -->
+            <!-- Список всех пользователей -->
             <div id="nav-home" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
                 <p><strong>All users</strong></p>
                 <div class="table-responsive">
@@ -101,7 +99,7 @@
                             <td th:text="${person.getUserEmail()}"></td>
                             <td><span th:each="role : ${person.getAuthorities()}" th:text="${role} + ' '"></span></td>
 
-                            <!-- Красная нопка Delete и синяя кнопка Edit -->
+                            <!-- Кнопки Delete и Edit -->
                             <td>
                                 <button th:href="${'#edit' + person.getUserId()}" type="button" class="btn btn-info"
                                         data-toggle="modal">Edit
@@ -118,7 +116,7 @@
                 </div>
             </div>
 
-            <!-- New user -->
+            <!-- Добавление нового юзера -->
             <div id="nav-profile" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <p><strong>Add new user</strong></p>
                 <div class="container-fluid text-center col-2">
@@ -161,7 +159,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Role
-                                    <select class="custom-select bd-primary" size="2" multiple name="roles" style="width: 210px">
+                                    <select class="custom-select bd-primary" size="2" multiple name="roles"
+                                            style="width: 210px">
                                         <option th:value="ADMIN" th:text="ADMIN">
                                         <option th:value="USER" th:text="USER">
                                         </option>
@@ -181,7 +180,7 @@
     </div>
 </div>
 
-<!-- Всплывающее окно edit -->
+<!-- Всплывающее окно EDIT -->
 <div class="modal fade" th:each="editUser : ${people}" th:id="${'edit' + editUser.getUserId()}">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -213,7 +212,8 @@
                         </div>
                         <div class="form-group">
                             <label>Email
-                                <input type="text" class="form-control" th:value="${editUser.userEmail}" name="userEmail">
+                                <input type="text" class="form-control" th:value="${editUser.userEmail}"
+                                       name="userEmail">
                             </label>
                         </div>
                         <div class="form-group">
@@ -245,7 +245,7 @@
     </div>
 </div>
 
-<!-- Кнопка delete -->
+<!-- Всплывающее окно DELETE -->
 <div class="modal fade" th:each="deleteUser : ${people}" th:id="${'delete' + deleteUser.getUserId()}">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

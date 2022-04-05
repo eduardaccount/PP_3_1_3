@@ -34,8 +34,7 @@ public class AdminController {
 
     @PostMapping("/addUser")
     public String addUser(@ModelAttribute("newUser") User user) {
-        System.out.println(user);
-        System.out.println(userService.addUser(new User(user.getUserName(), user.getUserPassword(), user.getUserEmail(), user.getUserAge(), user.getRoles())));
+        userService.addUser(new User(user.getUserName(), user.getUserPassword(), user.getUserEmail(), user.getUserAge(), user.getRoles()));
         return "redirect:/admin/index";
     }
 

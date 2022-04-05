@@ -23,13 +23,13 @@
 </head>
 <body>
 
-<!-- Верхний бар -->
+<!-- Верхнее меню -->
 <nav class="navbar navbar-dark bg-dark">
     <span class="navbar-brand mb-0 h1">
 
-                <!-- Для отображения имейла и роли залогинившегося -->
+                <!-- Для отображения имени и роли залогинившегося -->
          <strong><a th:text="${currentUser.getUsername()}">...</a></strong>
-        <span class="text-start">with roles:
+        <span class="text-start">ROLES:
             <a th:each="role : ${currentUser.getAuthorities()}" th:text="${role} + ' '"></a>
         </span>
     </span>
@@ -40,7 +40,7 @@
   </ul>
 </nav>
 
-<!-- Левый бар -->
+<!-- Левое меню -->
 <div class="row mt-5">
   <div class="col-2 fixed-left">
     <div th:fragment="leftmenu">
