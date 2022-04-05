@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "users_roles")
-//@IdClass(UsersRoles.UsersRolesId.class)
 public class UsersRoles {
 
     @Id
@@ -38,30 +37,4 @@ public class UsersRoles {
     public void setRole_id(long role_id) {
         this.role_id = role_id;
     }
-
-//    @Embeddable
-//    public static class UsersRolesId implements Serializable {
-//        @Column(name = "user_id")
-//        private long user_id;
-//        @Column(name = "role_id")
-//        private long role_id;
-//
-//        @Override
-//        public boolean equals(Object o) {
-//            if (this == o) return true;
-//            if (o == null || getClass() != o.getClass()) return false;
-//
-//            UsersRolesId that = (UsersRolesId) o;
-//
-//            if (user_id != that.user_id) return false;
-//            return role_id == that.role_id;
-//        }
-//
-//        @Override
-//        public int hashCode() {
-//            int result = (int) (user_id ^ (user_id >>> 32));
-//            result = 31 * result + (int) (role_id ^ (role_id >>> 32));
-//            return result;
-//        }
-//    }
 }
